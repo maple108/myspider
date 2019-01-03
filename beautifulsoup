@@ -1,0 +1,15 @@
+from bs4 import BeautifulSoup
+import re
+html_doc ="F:/knowledge/python/test1/sunhu.html"
+html_file = open(html_doc,"r",encoding="UTF-8")
+html_handle = html_file.read()
+soup = BeautifulSoup(html_handle,'html.parser')
+# print(soup)
+# print(soup.p)
+# print(soup.span.attrs)
+# ps = soup.find_all(id="pro-list-tpl")
+
+ps = soup.find_all("span",class_="nav-name")
+print(ps)
+r = re.findall(">(.{2,4})</span>",str(ps))
+print(r)
